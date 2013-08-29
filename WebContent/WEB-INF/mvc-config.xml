@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC 
+ "-//SPRING/DTD BEAN/EN" 
+ "http://www.springframework.org/dtd/spring-beans.dtd"> 
+<beans>   
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+        <property name="prefix">
+            <value>/jsp/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+    
+    <bean name="/main.do" 
+          class="edu.nccu.floodfire.controller.MainController"> 
+        <property name="viewPage"> 
+            <value>main</value> 
+        </property> 
+    </bean>
+    <bean name="/tree.do" 
+          class="edu.nccu.floodfire.controller.TreeController"> 
+        <property name="viewPage"> 
+            <value>tree</value> 
+        </property> 
+    </bean>
+    <bean name="/eventMain.do" 
+          class="edu.nccu.floodfire.controller.EventMainController"> 
+        <property name="viewPage"> 
+            <value>eventMain</value> 
+        </property> 
+    </bean>
+    <bean name="/newEvent.do" 
+          class="edu.nccu.floodfire.controller.NewEventController"> 
+        <property name="viewPage"> 
+            <value>newEvent</value> 
+        </property> 
+    </bean>
+    <bean name="/newEventResult.do" 
+          class="edu.nccu.floodfire.controller.NewEventResultController"> 
+        <property name="viewPage"> 
+            <value>newEventResult</value> 
+        </property> 
+    </bean>
+    <bean name="/queryEventResult.do" 
+          class="edu.nccu.floodfire.controller.QueryEventResultController"> 
+        <property name="viewPage"> 
+            <value>queryEventResult</value> 
+        </property> 
+    </bean>
+    <bean name="/queryTweet.do" 
+          class="edu.nccu.floodfire.controller.QueryTweetController"> 
+        <property name="viewPage"> 
+            <value>queryTweet</value> 
+        </property> 
+    </bean>
+    <bean name="/queryTweetSchedule.do" 
+          class="edu.nccu.floodfire.controller.QueryTweetScheduleController"> 
+        <property name="viewPage"> 
+            <value>queryTweetSchedule</value> 
+        </property> 
+    </bean>
+    <bean name="/personMain.do" 
+          class="edu.nccu.floodfire.controller.PersonMainController"> 
+        <property name="viewPage"> 
+            <value>personMain</value> 
+        </property> 
+    </bean>
+    <bean name="/queryData.do" 
+          class="edu.nccu.floodfire.controller.QueryDataController"> 
+        <property name="viewPage"> 
+            <value>queryData</value> 
+        </property> 
+    </bean>
+    <bean name="/queryDataResult.do" 
+          class="edu.nccu.floodfire.controller.QueryDataResultController"> 
+        <property name="viewPage"> 
+            <value>queryDataResult</value> 
+        </property> 
+    </bean>
+    <bean name="/analyzeMain.do" 
+          class="edu.nccu.floodfire.controller.AnalyzeMainController"> 
+        <property name="viewPage"> 
+            <value>analyzeMain</value> 
+        </property> 
+    </bean>
+    <bean name="/analyzeByUser.do" 
+          class="edu.nccu.floodfire.controller.AnalyzeByUserController"> 
+        <property name="viewPage"> 
+            <value>analyzeByUser</value> 
+        </property> 
+    </bean>
+     <bean name="/analyzeByRetweet.do" 
+          class="edu.nccu.floodfire.controller.AnalyzeByRetweetController"> 
+        <property name="viewPage"> 
+            <value>analyzeByRetweet</value> 
+        </property> 
+    </bean>
+    <bean name="/analyzeByMention.do" 
+          class="edu.nccu.floodfire.controller.AnalyzeByMentionController"> 
+        <property name="viewPage"> 
+            <value>analyzeByMention</value> 
+        </property> 
+    </bean>
+    <bean name="/analyzeMainContent.do" 
+          class="edu.nccu.floodfire.controller.AnalyzeMainContentController"> 
+        <property name="viewPage"> 
+            <value>analyzeMainContent</value> 
+        </property> 
+    </bean>
+    <bean name="/managementAuth.do" 
+          class="edu.nccu.floodfire.controller.ManagementAuthController"> 
+        <property name="viewPage"> 
+            <value>managementAuth</value> 
+        </property> 
+    </bean>
+    <bean name="/newAuth.do" 
+          class="edu.nccu.floodfire.controller.NewAuthController"> 
+        <property name="viewPage"> 
+            <value>newAuth</value> 
+        </property> 
+    </bean>
+    <bean name="/newAuthResult.do" 
+          class="edu.nccu.floodfire.controller.NewAuthResultController"> 
+        <property name="viewPage"> 
+            <value>newAuthResult</value> 
+        </property> 
+    </bean>
+    <bean name="/queryAuthResult.do" 
+          class="edu.nccu.floodfire.controller.QueryAuthResultController"> 
+        <property name="viewPage"> 
+            <value>queryAuthResult</value> 
+        </property> 
+    </bean>
+    <bean name="/managementJob.do" 
+          class="edu.nccu.floodfire.controller.ManagementJobController"> 
+        <property name="viewPage"> 
+            <value>managementJob</value> 
+        </property> 
+    </bean>
+    <bean name="/killResult.do" 
+          class="edu.nccu.floodfire.controller.KillResultController"> 
+        <property name="viewPage"> 
+            <value>killResult</value> 
+        </property> 
+    </bean>
+    <bean name="/preview.do" 
+          class="edu.nccu.floodfire.controller.PreviewController"> 
+        <property name="viewPage"> 
+            <value>preview</value> 
+        </property> 
+    </bean>
+    <bean name="/previewResult.do" 
+          class="edu.nccu.floodfire.controller.PreviewResultController"> 
+        <property name="viewPage"> 
+            <value>previewResult</value> 
+        </property> 
+    </bean>
+    <bean name="/trend.do" 
+          class="edu.nccu.floodfire.controller.TrendController"> 
+        <property name="viewPage"> 
+            <value>trend</value> 
+        </property> 
+    </bean>
+    <bean name="/trendResult.do" 
+          class="edu.nccu.floodfire.controller.TrendResultController"> 
+        <property name="viewPage"> 
+            <value>trendResult</value> 
+        </property> 
+    </bean>
+    <bean name="/syncJob.do" 
+          class="edu.nccu.floodfire.controller.SyncJobController"> 
+        <property name="viewPage"> 
+            <value>syncJob</value> 
+        </property> 
+    </bean>
+    <bean name="/syncResult.do" 
+          class="edu.nccu.floodfire.controller.SyncResultController"> 
+        <property name="viewPage"> 
+            <value>syncResult</value> 
+        </property> 
+    </bean>
+    <bean name="/managementToken.do" 
+          class="edu.nccu.floodfire.controller.ManagementTokenController"> 
+        <property name="viewPage"> 
+            <value>managementToken</value> 
+        </property> 
+    </bean>
+    <bean name="/newToken.do" 
+          class="edu.nccu.floodfire.controller.NewTokenController"> 
+        <property name="viewPage"> 
+            <value>newToken</value> 
+        </property> 
+    </bean>
+    <bean name="/newTokenResult.do" 
+          class="edu.nccu.floodfire.controller.NewTokenResultController"> 
+        <property name="viewPage"> 
+            <value>newTokenResult</value> 
+        </property> 
+    </bean>
+    <bean name="/updateToken.do" 
+          class="edu.nccu.floodfire.controller.UpdateTokenController"> 
+        <property name="viewPage"> 
+            <value>updateToken</value> 
+        </property> 
+    </bean>
+    <bean name="/updateTokenResult.do" 
+          class="edu.nccu.floodfire.controller.UpdateTokenResultController"> 
+        <property name="viewPage"> 
+            <value>updateTokenResult</value> 
+        </property> 
+    </bean>
+    <bean name="/queryTokenResult.do" 
+          class="edu.nccu.floodfire.controller.QueryTokenResultController"> 
+        <property name="viewPage"> 
+            <value>queryTokenResult</value> 
+        </property> 
+    </bean>
+    <bean name="/testConnection.do" 
+          class="edu.nccu.floodfire.controller.TestConnectionController"> 
+        <property name="viewPage"> 
+            <value>testConnection</value> 
+        </property> 
+    </bean>
+    <bean name="/testConnectionResult.do" 
+          class="edu.nccu.floodfire.controller.TestConnectionResultController"> 
+        <property name="viewPage"> 
+            <value>testConnectionResult</value> 
+        </property> 
+    </bean>
+</beans>
