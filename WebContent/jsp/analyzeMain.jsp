@@ -162,6 +162,18 @@ tbody tr:hover {
 <script>
 function open_win()
 {
+	var checkbox=document.forms['myform'].checkB;
+	for(i=0;i<checkbox.length;i++) {
+        if(checkbox[i].checked==true)
+        {
+           var jobSeq = checkbox[i].value.substring(5);           
+           document.getElementById('jobSeq').value = jobSeq;
+           
+        }
+
+    }
+	
+	
 	if(document.getElementById('reportType1').checked)
 	{
 	   w1 = window.open("analyzeByUser.do", "", "width=600, height=400");
@@ -178,8 +190,22 @@ function open_win()
 	   w1.focus();
 	}
 }
+function checkbox(jobId)
+{
+    var checkbox=document.forms['myform'].checkB;
+    for(i=0;i<checkbox.length;i++) {
+        if(checkbox[i].value!=jobId)
+        {
+           checkbox[i].checked=false;
+        }
+
+    }
+    
+}
 </script>
 <body>
+<FORM
+ NAME="myform">
 <fieldset> <legend>個人已排定的job:</legend>
 		<table border="3">
 		        <tr>
@@ -187,8 +213,8 @@ function open_win()
 		            <input type = "radio" id="reportType1" name ="reportType" value="1" checked>每日推文量/推文人比例圖</input>
 		            <input type = "radio" id="reportType2" name ="reportType" value="2">retweet排行表</input>
 		            <input type = "radio" id="reportType3" name ="reportType" value="3">mention排行表</input><br>
-		                                 統計起始<input name ="startDate"></input>~ 
-                                                      統計結束<input name ="endDate"></input>
+		                                           統計起始<input id="startDate" name ="startDate">(yyyy/mm/dd)</input>~ 
+                                                                      統計結束<input id="endDate" name ="endDate">(yyyy/mm/dd)</input>
                     <input type="button" name ="button" value="統計" onclick="open_win()" >
 		            </td>		            
 		        </tr>
@@ -206,7 +232,7 @@ function open_win()
 						List sublist = (List) list.get(i);
 				%>
 				<tr align="center">
-				<td width="20"><input type ="checkbox" name="check<%=sublist.get(1)%>"></input></td>
+				<td width="20"><input type ="checkbox" name="checkB" value="check<%=sublist.get(1)%>" onchange="checkbox('check<%=sublist.get(1)%>')"></input></td>
                 <td width="100" style="word-break:break-all"><%=sublist.get(0)%></td>
                 <td  nowrap><%=sublist.get(1)%></td>
                 <td width="100" style="word-break:break-all"><%=sublist.get(2)%></td>
@@ -222,6 +248,9 @@ function open_win()
 
 
 </table>
-		
+<input type ="hidden" name="jobSeq" id="jobSeq">		
 </fieldset>
-</body></html>
+</FORM>
+</body>
+
+</html>

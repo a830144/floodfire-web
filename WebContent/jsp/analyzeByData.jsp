@@ -4,7 +4,7 @@
   
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*" %>
-<title>analyzeByMention</title>
+<title>analyzeByData</title>
 <style type="text/css">
 body {
 	font-family: Arial, Helvetica, sans-serif;
@@ -161,9 +161,9 @@ tbody tr:hover {
 </style>
   
 </head>
-<body onload="getOpenerAnalyzeByMention()"> 
+<body onload="getOpenerAnalyzeByData()"> 
 <script>
-function getOpenerAnalyzeByMention()
+function getOpenerAnalyzeByData()
 {
 	var jobSeq = window.opener.document.getElementById('jobSeq').value;
 	document.getElementById('jobSeq').value=jobSeq;
@@ -171,16 +171,19 @@ function getOpenerAnalyzeByMention()
 	document.getElementById('startDate').value=startDate;
 	var endDate = window.opener.document.getElementById('endDate').value;
 	document.getElementById('endDate').value=endDate;
+	var keyword = window.opener.document.getElementById('keyword').value;
+	document.getElementById('keyword').value=keyword;
 	document.form1.submit();
 }
 </script>
 <FORM
  NAME="form1"
  METHOD="POST" 
- ACTION="analyzeByMentionResult.do" >
+ ACTION="analyzeByDataResult.do" >
  <input name="jobSeq" id="jobSeq"></input>
  <input name="startDate" id="startDate"></input>
  <input name="endDate" id="endDate"></input>
+ <input name="keyword" id="keyword"></input>
 </FORM>
 
 

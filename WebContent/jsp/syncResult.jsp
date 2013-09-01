@@ -176,13 +176,18 @@ tbody tr:hover {
 
 
 
-             <input type="radio" name="syncFunc" value="yourTWapperKeeper" checked>將HBase資料同步YourTWapperKeeper MySQL
+             <input type="radio" name="function" value="yourTWapperKeeper" disabled>將HBase資料同步YourTWapperKeeper MySQL
              <br>
-             <input type="radio" name="syncFunc" value="floodFire">將HBase資料同步floodFire本身的MySQL
+             <input type="radio" name="function" value="floodFire"  disabled>將HBase資料同步floodFire本身的MySQL
              <br>
-             <input type="submit" name ="button" value="同步" ></input>
+             <input type="radio" name="function" value="export" checked>轉出csv檔
              <br>
-            同步作業執行中!!!
+             <input type="text" name="startDate">(yyyy/mm/dd)~
+             <input type="text" name="endDate">(yyyy/mm/dd)
+             <input type="text" name="fileName" checked>檔名
+             <br>
+            如您執行同步作業,現同步作業執行中；<br>
+            如您啟動export csv作業，可於一段時間後，去MySQL目錄下取得檔案!!!
 
            
 

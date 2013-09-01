@@ -91,10 +91,22 @@
             <value>analyzeByUser</value> 
         </property> 
     </bean>
-     <bean name="/analyzeByRetweet.do" 
+    <bean name="/analyzeByUserResult.do" 
+          class="edu.nccu.floodfire.controller.AnalyzeByUserResultController"> 
+        <property name="viewPage"> 
+            <value>analyzeByUserResult</value> 
+        </property> 
+    </bean>
+    <bean name="/analyzeByRetweet.do" 
           class="edu.nccu.floodfire.controller.AnalyzeByRetweetController"> 
         <property name="viewPage"> 
             <value>analyzeByRetweet</value> 
+        </property> 
+    </bean>
+    <bean name="/analyzeByRetweetResult.do" 
+          class="edu.nccu.floodfire.controller.AnalyzeByRetweetResultController"> 
+        <property name="viewPage"> 
+            <value>analyzeByRetweetResult</value> 
         </property> 
     </bean>
     <bean name="/analyzeByMention.do" 
@@ -103,10 +115,28 @@
             <value>analyzeByMention</value> 
         </property> 
     </bean>
+    <bean name="/analyzeByMentionResult.do" 
+          class="edu.nccu.floodfire.controller.AnalyzeByMentionResultController"> 
+        <property name="viewPage"> 
+            <value>analyzeByMentionResult</value> 
+        </property> 
+    </bean>
     <bean name="/analyzeMainContent.do" 
           class="edu.nccu.floodfire.controller.AnalyzeMainContentController"> 
         <property name="viewPage"> 
             <value>analyzeMainContent</value> 
+        </property> 
+    </bean>
+    <bean name="/analyzeByData.do" 
+          class="edu.nccu.floodfire.controller.AnalyzeByDataController"> 
+        <property name="viewPage"> 
+            <value>analyzeByData</value> 
+        </property> 
+    </bean>
+    <bean name="/analyzeByDataResult.do" 
+          class="edu.nccu.floodfire.controller.AnalyzeByDataResultController"> 
+        <property name="viewPage"> 
+            <value>analyzeByDataResult</value> 
         </property> 
     </bean>
     <bean name="/managementAuth.do" 

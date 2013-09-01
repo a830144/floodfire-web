@@ -6,19 +6,20 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
-public class AnalyzeByMentionController implements Controller {
+public class AnalyzeByDataController implements Controller {
 	private String viewPage;
 
 	public ModelAndView handleRequest(HttpServletRequest req,
 			HttpServletResponse res) throws Exception {
-		    req.setCharacterEncoding("UTF-8");		  		
-			return new ModelAndView(viewPage);
+		req.setCharacterEncoding("UTF-8");		  		
+		return new ModelAndView(viewPage);
 		
 	}
 
 	public void setViewPage(String viewPage) {
 		this.viewPage = viewPage;
 	}
+	
 	
 
 }

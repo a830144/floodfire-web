@@ -1,11 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-<head>
-  
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.*" %>
-<title>analyzeByMention</title>
-<style type="text/css">
+<head>  
+   <%@page contentType="text/html" pageEncoding="UTF-8"%>
+   <%@page import="java.util.*" %>
+   <title>analyzeByRetweet</title> 
+   <style type="text/css">
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size:12px;
@@ -158,30 +157,43 @@ tbody th a {
 tbody tr:hover {
 		background:#fafafa
 }
-</style>
-  
+</style> 
 </head>
-<body onload="getOpenerAnalyzeByMention()"> 
-<script>
-function getOpenerAnalyzeByMention()
-{
-	var jobSeq = window.opener.document.getElementById('jobSeq').value;
-	document.getElementById('jobSeq').value=jobSeq;
-	var startDate = window.opener.document.getElementById('startDate').value;
-	document.getElementById('startDate').value=startDate;
-	var endDate = window.opener.document.getElementById('endDate').value;
-	document.getElementById('endDate').value=endDate;
-	document.form1.submit();
-}
-</script>
-<FORM
- NAME="form1"
- METHOD="POST" 
- ACTION="analyzeByMentionResult.do" >
- <input name="jobSeq" id="jobSeq"></input>
- <input name="startDate" id="startDate"></input>
- <input name="endDate" id="endDate"></input>
-</FORM>
+
+<body>
+<fieldset> <legend>retweet排行表:</legend>
+		<table border="3">
+		        
+				<tr>
+				    <td></td>
+				    <td>推特ID</td>
+					<td>推特內文</td>	
+					<td>RETWEET數</td>
+														
+				</tr>
+
+				<%
+					List list = (List) request.getAttribute("list");
+					for (int i = 0; i < list.size(); i++) {
+						List sublist = (List) list.get(i);
+				%>
+				<tr align="center">
+				<td width="20"><input type ="checkbox" name="check<%=sublist.get(1)%>"></input></td>
+                <td width="100" style="word-break:break-all"><%=sublist.get(0)%></td>
+                <td width="100" style="word-break:break-all"><%=sublist.get(1)%></td>
+                <td width="100" style="word-break:break-all"><%=sublist.get(2)%></td>
+
+               
+               
+              
+                </tr>
+
+				<%
+					}
+				%>
 
 
+</table>
+		
+</fieldset>
 </body></html>

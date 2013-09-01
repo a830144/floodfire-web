@@ -19,7 +19,6 @@ public class AnalyzeMainContentController implements Controller {
 			HttpServletResponse res) throws Exception {	
 		req.setCharacterEncoding("UTF-8");
 		ApplicationContext applicationContext =WebApplicationContextUtils.getWebApplicationContext(req.getSession().getServletContext());
-		//ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 		ManagementService managementService = (ManagementService)applicationContext.getBean("managementService");
 		String user = (String)req.getSession().getAttribute("user");
 		@SuppressWarnings("rawtypes")

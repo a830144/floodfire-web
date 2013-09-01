@@ -1,5 +1,8 @@
 package edu.nccu.floodfire.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,8 +22,8 @@ public class QueryDataResultController implements Controller {
 			HttpServletResponse res) throws Exception {
 		req.setCharacterEncoding("UTF-8");
 		String userName = req.getParameter("userName");
-		String startDate = req.getParameter("startDate");
-		String endDate = req.getParameter("endDate");
+		Date startDate = req.getParameter("startDate")!=null? parse(""+req.getParameter("startDate")) : null;
+	    Date endDate = req.getParameter("endDate")!=null? parse(""+req.getParameter("endDate")) : null;;
 		String keyword = req.getParameter("keyword");
 		String mentionedUser = req.getParameter("mentionedUser");
 
@@ -32,6 +35,21 @@ public class QueryDataResultController implements Controller {
 
 	public void setViewPage(String viewPage) {
 		this.viewPage = viewPage;
+	}
+	
+	private Date parse(String date)
+	{
+		Date todate = null;
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+			todate = sdf.parse(date);
+			
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return todate;
+
 	}
 
 }

@@ -1,81 +1,190 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-    
 <head>
+  
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.*" %>
-    <title>amCharts examples</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <script src="./js/amcharts.js" type="text/javascript"></script>         
-    <script type="text/javascript">
-            var chart;
-            var chartData = [
-            <%
-               List list = (List)request.getAttribute("list");
-               for (int i = 0; i < list.size(); i++) 
-               {
-	
-	              out.print(list.get(i));
-	              if(i < list.size()-1)
-	              {
-	                  out.print(",");
-	              }
-                } 
-                out.print("];");
-             %>                 
-                             
-                             
-                          
+<title>trend</title>
+<style type="text/css">
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#666666;
+	background:#fff;
+	text-align:center;
+
+}
+
+* {
+	margin:0;
+	padding:0;
+}
+
+a {
+	color:#1E7ACE;
+	text-decoration:none;	
+}
+
+a:hover {
+	color:#000;
+	text-decoration:underline;
+}
+h3 {
+	font-size:14px;
+	font-weight:bold;
+}
+
+pre,p {
+	color:#1E7ACE;
+	margin:4px;
+}
+input, select,textarea {
+	padding:1px;
+	margin:2px;
+	font-size:11px;
+}
+.button{
+	padding:1px 10px;
+	font-size:12px;
+	border:1px #1E7ACE solid;
+	background:#D0F0FF;
+}
+#formwrapper {
+	width:450px;
+	margin:15px auto;
+	padding:20px;
+	text-align:left;
+	border:1px #1E7ACE solid;
+}
+
+fieldset {
+	padding:10px;
+	margin-top:5px;
+	border:1px solid #1E7ACE;
+	background:#fff;
+}
+
+fieldset legend {
+	color:#1E7ACE;
+	font-weight:bold;
+	padding:3px 20px 3px 20px;
+	border:1px solid #1E7ACE;	
+	background:#fff;
+}
+
+fieldset label {
+	float:left;
+	width:120px;
+	text-align:right;
+	padding:4px;
+	margin:1px;
+}
+
+fieldset div {
+	clear:left;
+	margin-bottom:2px;
+}
+
+.enter{ text-align:center;}
+.clear {
+	clear:both;
+}
+table {
+		border-collapse:collapse;
+		background:#EFF4FB url(http://www.roscripts.com/images/teaser.gif) repeat-x;
+		border-left:1px solid #686868;
+		border-right:1px solid #686868;
+		font:0.8em/145% 'Trebuchet MS',helvetica,arial,verdana;
+		color: #333;
+}
+
+td, th {
+		padding:5px;
+}
+
+caption {
+		padding: 0 0 .5em 0;
+		text-align: left;
+		font-size: 1.4em;
+		font-weight: bold;
+		text-transform: uppercase;
+		color: #333;
+		background: transparent;
+}
 
 
-            AmCharts.ready(function () {
-                // SERIAL CHART  
-                chart = new AmCharts.AmSerialChart();
-                chart.pathToImages = "../amcharts/images/";
-                chart.dataProvider = chartData;
-                chart.categoryField = "date";
-                chart.startDuration = 1;
+table a {
+		color:#950000;
+		text-decoration:none;
+}
 
-                // AXES
-                // category
-                var categoryAxis = chart.categoryAxis;
-                categoryAxis.gridPosition = "start";
+table a:link {}
 
-                // value
-                // in case you don't want to change default settings of value axis,
-                // you don't need to create it, as one value axis is created automatically.
-                
-                // GRAPHS
-                // column graph
-                var graph1 = new AmCharts.AmGraph();
-                graph1.type = "column";
-                graph1.title = "推文人數";
-                graph1.valueField = "user";
-                graph1.lineAlpha = 0;
-                graph1.fillAlphas = 1;
-                chart.addGraph(graph1);
+table a:visited {
+		font-weight:normal;
+		color:#666;
+		text-decoration: line-through;
+}
 
-                // line
-                var graph2 = new AmCharts.AmGraph();
-                graph2.type = "line";
-                graph2.title = "Tweet數";
-                graph2.valueField = "tweet";
-                graph2.lineThickness = 2;
-                graph2.bullet = "round";
-                chart.addGraph(graph2);
+table a:hover {
+		border-bottom: 1px dashed #bbb;
+}
 
-                // LEGEND                
-                var legend = new AmCharts.AmLegend();
-                chart.addLegend(legend);
 
-                // WRITE
-                chart.write("chartdiv");
-            });
-        </script>
-    </head>
-    
-    <body>
-        <div id="chartdiv" style="width:600px; height:400px;"></div>
-    </body>
+thead th, tfoot th, tfoot td {
+		background:#333 url(http://www.roscripts.com/images/llsh.gif) repeat-x;
+		color:#fff
+}
 
-</html>
+tfoot td {
+		text-align:right
+}
+
+
+tbody th, tbody td {
+		border-bottom: dotted 1px #333;
+}
+
+tbody th {
+		white-space: nowrap;
+}
+
+tbody th a {
+		color:#333;
+}
+
+.odd {}
+
+tbody tr:hover {
+		background:#fafafa
+}
+</style>
+  
+</head>
+<body onload="getOpenerAnalyzeByUser()"> 
+<script>
+function getOpenerAnalyzeByUser()
+{
+	var jobSeq = window.opener.document.getElementById('jobSeq').value;
+
+	document.getElementById('jobSeq').value=jobSeq;
+	var startDate = window.opener.document.getElementById('startDate').value;
+
+	document.getElementById('startDate').value=startDate;
+	var endDate = window.opener.document.getElementById('endDate').value;
+
+	document.getElementById('endDate').value=endDate;
+	document.form1.submit();
+}
+</script>
+<FORM
+ NAME="form1"
+ METHOD="POST" 
+ ACTION="analyzeByUserResult.do" >
+ <input name="jobSeq" id="jobSeq"></input>
+ <input name="startDate" id="startDate"></input>
+ <input name="endDate" id="endDate"></input>
+</FORM>
+
+
+</body></html>

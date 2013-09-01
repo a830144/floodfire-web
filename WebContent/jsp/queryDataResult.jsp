@@ -162,24 +162,25 @@ tbody tr:hover {
   
 </head>
 <body>
+<FORM
+ METHOD="POST" 
+ ACTION="queryDataResult.do" >
 <fieldset> <legend>查詢條件:</legend>
 		<div align="left">
 			內文關鍵字:<input size="10" name="keyword">
 		</div>
-		<div align="left">
-			內文mention:<input size="10" name="mentionedUser">(意指:內文被mentioned/retweet人員)
-		</div>
+		
 		<div align="left">
 			發推文人員:<input size="10" name="userName">
 		</div>
 		<div align="left">
-			發推文時間:<input size="10" name="stratDate">~<input size="10"
-				name="endDate">
+			發推文時間:<input size="10" name="startDate">(yyyy/mm/dd)~<input size="10"
+				name="endDate">(yyyy/mm/dd)
 		</div>
 
 		<input type="submit" value="查詢" name="subsmit">
 	</fieldset>
-
+</FORM>
 <fieldset> <legend>查詢結果:</legend>
 <table border="3">
 <tr>

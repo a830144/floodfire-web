@@ -177,12 +177,12 @@ tbody tr:hover {
 	<fieldset>
 		<legend>查詢條件:</legend>
 				<div align="left">內文關鍵字:<input size="10" name="keyword"></div>
-				<div align="left">內文mention:<input size="10" name="mentionedUser">(意指:內文被mentioned/retweet人員)</div>
+				
 				<div align="left">發推文人員:<input size="10" name="userName"></div>
 				<div align="left">
 				發推文時間:
 				
-				<input size="10" name="startDate">~<input size="10" name="endDate">
+				<input size="10" name="startDate">(yyyy/mm/dd)~<input size="10" name="endDate">(yyyy/mm/dd)
 				
 				</div>
 			
