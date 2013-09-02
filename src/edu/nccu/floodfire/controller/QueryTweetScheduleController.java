@@ -97,15 +97,15 @@ public class QueryTweetScheduleController implements Controller {
 				keyword = req.getParameter("keyword");
 				String jobSeq1 = thisDate + "?" + "queryType" + "=" + "search" +"&" + "keyword" + "=" + keyword +"&" + "user"+"="+user;
 				JobseqUtil.setSearchJobseq(jobSeq1);
-				Scheduler scheduler = createScheduler(jobSeq);
+				Scheduler scheduler = createScheduler(jobSeq1);
 				createSearchJob(jobSeq1,"search",queryFunc,keyword, managementService, applicationContext,scheduler);
 				putSchedulerPool(scheduler);
 				addJobToDatabase(jobSeq1,user,"search",queryFunc,event,keyword,managementService);
 				
 				String jobSeq2 = thisDate + "?" + "queryType" + "=" + "stream" +"&" + "keyword" + "=" + keyword +"&" + "user"+"="+user;
 				JobseqUtil.setStreamJobseq(jobSeq2);
-				scheduler = createScheduler(jobSeq);
-				createStreamJob(jobSeq,queryType,queryFunc,keyword,managementService,applicationContext,scheduler);
+				scheduler = createScheduler(jobSeq2);
+				createStreamJob(jobSeq2,queryType,queryFunc,keyword,managementService,applicationContext,scheduler);
 				putSchedulerPool(scheduler);
 				addJobToDatabase(jobSeq2,user,"stream",queryFunc,event,keyword,managementService);
 				jobSeq = jobSeq1 +";<br>"+ jobSeq2;
